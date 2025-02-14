@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slider">
+        <button class="prev">&#10094;</button> <!-- Left arrow -->
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="image1.jpg" alt="Eiffel Tower">
+                <div class="caption">Taj Mahal – The Eternal Emblem of Devotion</div>
+            </div>
+            <div class="slide">
+                <img src="image2.jpg" alt="Beach Sunset">
+                <div class="caption">Colosseum – Where History Echoes Through Stone</div>
+            </div>
+            <div class="slide">
+                <img src="image3.jpg" alt="Snowy Mountains">
+                <div class="caption">Chichen Itza – Echoes of an Ancient Civilization</div>
+            </div>
+        </div>
+        <button class="next">&#10095;</button> <!-- Right arrow -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

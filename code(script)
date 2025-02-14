@@ -1,0 +1,43 @@
+let slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.querySelector('.next').addEventListener('click', nextSlide);
+document.querySelector('.prev').addEventListener('click', prevSlide);
+
+// Function to move to the next slide
+function nextSlide() {
+    slides[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add('active');
+}
+
+// Function to move to the previous slide
+function prevSlide() {
+    slides[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    slides[currentIndex].classList.add('active');
+}
+
+// Auto-slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Swipe support for touch devices
+document.querySelector('.slider').addEventListener('touchstart', (event) => {
+    touchStartX = event.touches[0].clientX;
+});
+
+document.querySelector('.slider').addEventListener('touchend', (event) => {
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    let swipeThreshold = 50;
+    if (touchStartX - touchEndX > swipeThreshold) {
+        nextSlide();
+    } else if (touchEndX - touchStartX > swipeThreshold) {
+        prevSlide();
+    }
+}
